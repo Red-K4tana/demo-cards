@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+export type StateImgType = string
+
+const stateImg: Array<StateImgType> = [
+    'https://cdn2.thecatapi.com/images/a5.jpg',
+    'https://cdn2.thecatapi.com/images/abs.jpg',
+    'https://cdn2.thecatapi.com/images/6tg0GKA4n.jpg',
+]
+
+
+
+export function App() {
+
+
+    console.log(' stateImg ', stateImg)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {stateImg.map((card)=> {
+            return (
+                <div>
+                    <img src={card} alt="ddd"/>
+                    ,ka ,vka,kvsadf
+                </div>
+            )
+        })}
+        123243
     </div>
   );
 }
 
-export default App;
