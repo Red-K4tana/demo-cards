@@ -1,8 +1,6 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {ActionType, appReducer} from "./app-reducer";
 import thunk, {ThunkDispatch} from "redux-thunk";
-import {useDispatch} from "react-redux";
-
 
 
 export type thunkDispatchType = ThunkDispatch<AppRootStateType, any, ActionType>
