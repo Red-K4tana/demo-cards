@@ -6,8 +6,17 @@ const instance = axios.create({
 })
 
 export const appAPI = {
+    //запрос для получения данных с сервера
     getImage() {
-        return instance.get('?limit=4&page=1&order=DESC')
+        return instance.get<Array<ImgServerType>>('?limit=5&page=1&order=DESC')
     }
 
+}
+
+//тип карточек, пришедших с сервера
+export type ImgServerType = {
+    id: string,
+    url: string,
+    width: number,
+    height: number,
 }

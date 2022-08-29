@@ -1,0 +1,64 @@
+.imgBlock {
+    border-radius: 3px;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 0 0 10px #33454d;
+}
+.imgBlock img {
+    max-height: 230px;
+}
+
+.cardTitle {
+    margin: 2px 4px 2px 8px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.funcButton {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.checkbox {
+    display: none;
+}
+
+.spanClassName {
+    padding-left: 5px;
+}
+
+.spanClassName:before {
+    content: '';
+    display:inline-block;
+    width: 30px;
+    height: 30px;
+
+    vertical-align: middle;
+    margin: 5px 10px 0 5px;
+    transition: 0.3s;
+
+    background-image: url("https://img.icons8.com/plasticine/30/000000/like--v2.png");
+}
+.checkbox:checked + .spanClassName:before {
+    background-image: url("https://img.icons8.com/plasticine/30/000000/like--v1.png");
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+.deleteButton {
+    display: none;
+}
+.deleteButtonSpan {
+    content: '';
+    display:inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 6px 6px 0 2px;
+    transition: 0.3s;
+    background-image: url("https://img.icons8.com/officexs/30/000000/delete.png");
+}
+.deleteButtonSpan:hover {
+    transition: 0.3s;
+    background-image: url("https://img.icons8.com/offices/30/000000/delete.png");
+
+}
+
+

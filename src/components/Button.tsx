@@ -1,17 +1,19 @@
 import React from "react";
 
-type propsType = {
-    name: string
-    callback: ()=> void
-    color?: string
+type ButtonPropsType = {
+    callback: () => void
+    classNameButton: string
+    classNameSpan?: string
+    name?: string
 }
 
-export const Button = React.memo( (props: propsType) => {
-    const onClickHandler = () => {
-        props.callback()
-    }
+export const Button = React.memo((props: ButtonPropsType) => {
 
-    return(
-        <button className={props.color} onClick={onClickHandler}>{props.name}</button>
+
+    return (
+        <label>
+            <button className={props.classNameButton} onClick={props.callback}>{props.name}</button>
+            <span className={props.classNameSpan}></span>
+        </label>
     )
 })

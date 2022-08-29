@@ -1,0 +1,61 @@
+.app {
+    padding: 30px;
+}
+
+.blockForImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.checkbox {
+    display: none;
+}
+
+.spanClassName {
+    padding-left: 10px;
+}
+
+.spanClassName:before {
+    content: '';
+    display:inline-block;
+    width: 30px;
+    height: 30px;
+
+    vertical-align: middle;
+    margin: 0 10px;
+    transition: 0.2s;
+
+
+    background-image: url("https://img.icons8.com/plasticine/30/000000/toggle-off.png");
+}
+.checkbox:checked + .spanClassName:before {
+
+
+    background-image: url("https://img.icons8.com/plasticine/30/000000/toggle-on.png");
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.buttonAdd {
+    margin: 10px 10px;
+    border: 0 solid;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 1px #fff;
+    color: #294f58;
+    background-color: #bae2ec;
+    width: 120px;
+    height: 25px;
+    font-size: 15px;
+    transition: .2s box-shadow;
+}
+.buttonAdd:hover {
+    box-shadow: 0 0 5px 1px #fff;
+    background-color: #94c4d0;
+    transition: .2s box-shadow;
+}
+.buttonAdd:active {
+    box-shadow: 0 0 10px 5px #fff;
+    background-color: #bae2ec;
+    border: 2px solid #99ccd8;
+}

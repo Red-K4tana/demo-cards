@@ -1,25 +1,19 @@
-import React, {useEffect} from 'react';
-import './App.css';
+import React, {ChangeEvent, useEffect, useState} from 'react';
+import './app-style.module.css';
 import {Button} from "./components/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType, thunkDispatchType,} from "./redux/store";
-import {ActionType, getImageTC, ImgType} from "./redux/app-reducer";
-import {ThunkDispatch} from "redux-thunk";
+import {getImageTC, ImgType} from "./redux/app-reducer";
+import {Card} from "./components/Card/Card";
+import styleApp from './app-style.module.css';
+import {Input} from "./components/Input";
 
-
-
+export type FilterLikedType = 'Liked' | 'NotLiked'
 
 
 
 export function App() {
-    const imageList = useSelector<AppRootStateType, Array<ImgType>>(state => state.appReducer)
-
-    /*const imageList = [{
-        id: 'cds21',
-        url: 'http://csdaca.dsa.ds',
-        width: 11,
-        height: 22,
-    }]*/
+    const imagesFromAPI = useSelector<AppRootStateType, Array<ImgType>>(state => state.appReducer)
 
     const thunkDispatch = useDispatch<thunkDispatchType>()
 
@@ -30,24 +24,46 @@ export function App() {
     const addImageHandler = () => {
         thunkDispatch(getImageTC())
     }
+    //------------------------------------------------------------------------------------------------------------------
+    //в useState храним значение фильтра на странице
+    const [likedFilter, setLikedFilter] = useState<boolean>(false)
+    //меняем значение фильтра
+    const changeLikedFilter = (event: ChangeEvent<HTMLInputElement>) => {
+        setLikedFilter(event.currentTarget.checked)
+    }
 
-    console.log(imageList)
-
+    let cardsAfterFilter = imagesFromAPI
+    //если фильтр на залайканные true - отправляем на отображение только карточки со статусом 'Liked'
+    if (likedFilter) {
+        cardsAfterFilter = imagesFromAPI.filter(card => card.likeStatus === 'Liked')
+    }
+    //------------------------------------------------------------------------------------------------------------------
+    const displayedCards = cardsAfterFilter.map((card) => {
+        return (
+            <Card key={card.id}
+                  cardUrl={card.url}
+                  cardId={card.id}
+                  likeStatus={card.likeStatus}
+            />
+        )
+    })
+    //------------------------------------------------------------------------------------------------------------------
     return(
-        <div className="App">
-            <Button name={'Add image'} callback={()=>addImageHandler()}/>
-            {imageList.map((card) => {
-                return (
-                    <div key={card.id}>
-                        {/*<img src={card} alt="ddd"/>*/}
-                        {card.id}
-                        {card.url}
-                        Here appear cards
-                    </div>
-                )
-            })}
+        <div className={styleApp.app}>
+            <Button callback={()=>addImageHandler()}
+                    classNameButton={styleApp.buttonAdd}
+                    name={'Add 5 image'}
+            />
+            <Input callback={changeLikedFilter}
+                   checked={likedFilter}
+                   classNameCheckbox={styleApp.checkbox}
+                   classNameSpan={styleApp.spanClassName}
+            />
+            <div className={styleApp.blockForImages}>
+                {displayedCards}
+            </div>
+
 
         </div>
     );
 }
-
