@@ -5,6 +5,7 @@ type InputPropsType = {
     checked: boolean
     classNameCheckbox: string
     classNameSpan: string
+    spanText?: string
 }
 
 export const Input = (props:InputPropsType) => {
@@ -16,7 +17,7 @@ export const Input = (props:InputPropsType) => {
                    checked={props.checked}
                    className={props.classNameCheckbox}
             />
-            <span className={props.classNameSpan} >Show only liked</span>
+            <span className={props.classNameSpan} >{props.spanText}</span>
         </label>
     );
 };

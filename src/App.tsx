@@ -58,6 +58,7 @@ export function App() {
                    checked={likedFilter}
                    classNameCheckbox={styleApp.checkbox}
                    classNameSpan={styleApp.spanClassName}
+                   spanText={'Show liked images'}
             />
             <div className={styleApp.blockForImages}>
                 {displayedCards}
