@@ -32,8 +32,6 @@ export const Card = (props: CardPropsType) => {
 
     return (
         <div className={styleCard.imgBlock}>
-
-
             <img src={props.cardUrl}/>
             <div className={styleCard.cardTitle}>
                 ID image: {props.cardId}
@@ -49,10 +47,6 @@ export const Card = (props: CardPropsType) => {
                         classNameSpan={styleCard.deleteButtonSpan}
                 />
             </div>
-
-
-
-
         </div>
     );
 };

@@ -62,8 +62,6 @@ export function App() {
             <div className={styleApp.blockForImages}>
                 {displayedCards}
             </div>
-
-
         </div>
     );
 }

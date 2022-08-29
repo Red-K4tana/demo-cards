@@ -10,7 +10,6 @@ export const appAPI = {
     getImage() {
         return instance.get<Array<ImgServerType>>('?limit=5&page=1&order=DESC')
     }
-
 }
 
 //тип карточек, пришедших с сервера
