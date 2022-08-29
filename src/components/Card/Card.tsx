@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeLickedAC, deleteCardAC, ImgType} from "../../redux/app-reducer";
 import {AppRootStateType} from "../../redux/store";
 import {Input} from "../Input";
-import styleApp from "../../app-style.module.css";
 import {Button} from "../Button";
 
 
